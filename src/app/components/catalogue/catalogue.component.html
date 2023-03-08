@@ -1,0 +1,18 @@
+<div class="container-card">
+  <div *ngFor="let product of products" class="card">
+    <div class="container-img">
+      <img [src]="product.image" class="card-img   " alt="...">
+    </div>
+
+
+
+    <div class="card-body">
+      <h6 class="card-title card-title-style text-capitalize">{{product.title}}</h6>
+      <p class="card-text description"> {{product.description}}</p>
+      <ul class="list-group list-group-flush">
+        <div class="list-group-item text-capitalize  ">{{product.category}}</div>
+        <li class="list-group-item fw-bold mb-4"> {{product.price | currency: 'EUR'}} </li>
+        <div class="d-flex justify-content-center">
+          <button (click)="addToBasket(product)" class=" btn btn-danger text-white"><em class="fa-solid fa-cart-shopping"></em>Ajouter au
+            panier</button>
+        </div>
