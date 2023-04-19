@@ -15,13 +15,13 @@
         <div class="d-flex justify-content-center">
           <button (click)="addToBasket(product)" class=" btn btn-danger text-white"><em class="fa-solid fa-cart-shopping"></em>Ajouter au
             panier</button>
-            <ng-container [ngSwitch]="isActive">
+            <!-- <ng-container [ngSwitch]="isActive">
               <ng-container *ngSwitchCase="true">
                 <button  [ngClass]="{'active': isActive, 'inactive': !isActive}" (click)="toggleActive()">Actif</button>
               </ng-container>
               <ng-container *ngSwitchDefault>
                 <button  [ngClass]="{'active': isActive, 'inactive': !isActive}" (click)="toggleActive()">inactif</button>
               </ng-container>
-            </ng-container>
+            </ng-container> -->
             <app-add-order-btn (click)="addToBasket(product)"></app-add-order-btn>
         </div>
