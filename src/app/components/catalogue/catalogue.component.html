@@ -10,9 +10,18 @@
       <h6 class="card-title card-title-style text-capitalize">{{product.title}}</h6>
       <p class="card-text description"> {{product.description}}</p>
       <ul class="list-group list-group-flush">
-        <div class="list-group-item text-capitalize  ">{{product.category}}</div>
+        <div class="list-group-item text-capitalize  ">{{product.category}} </div>
         <li class="list-group-item fw-bold mb-4"> {{product.price | currency: 'EUR'}} </li>
         <div class="d-flex justify-content-center">
           <button (click)="addToBasket(product)" class=" btn btn-danger text-white"><em class="fa-solid fa-cart-shopping"></em>Ajouter au
             panier</button>
+            <ng-container [ngSwitch]="isActive">
+              <ng-container *ngSwitchCase="true">
+                <button  [ngClass]="{'active': isActive, 'inactive': !isActive}" (click)="toggleActive()">Actif</button>
+              </ng-container>
+              <ng-container *ngSwitchDefault>
+                <button  [ngClass]="{'active': isActive, 'inactive': !isActive}" (click)="toggleActive()">inactif</button>
+              </ng-container>
+            </ng-container>
+            <app-add-order-btn (click)="addToBasket(product)"></app-add-order-btn>
         </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../login/login.service';
+import { NavbarService } from './navbar.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,8 @@ import { LoginService } from '../login/login.service';
 export class NavbarComponent implements OnInit {
 
   constructor(private router: Router,
-              private service: LoginService) { }
+              private service: LoginService,
+              private navbarService: NavbarService) { }
 
   ngOnInit() {
   }
@@ -23,4 +25,6 @@ logout(): void{
 
   
 }
+quantity$ = this.navbarService.quantity$
+ 
 }

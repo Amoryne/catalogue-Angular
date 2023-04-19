@@ -42,3 +42,10 @@ margin: 0 auto;
         height: 100%;
         padding:10px;
     }
+
+    .active{
+        background-color: green;
+    }
+    .inactive{
+        background-color: red;
+    }

@@ -4,6 +4,7 @@ import { filter, map, Subject, take, takeUntil } from 'rxjs';
 import { CatalogueService } from './catalogue.service';
 import { Product } from './types/product';
 import { BasketComponent } from '../basket/basket.component';
+import { AddOrderBtnComponent } from './components/add-order-btn/add-order-btn.component';
 
 
 @Component({
@@ -12,9 +13,9 @@ import { BasketComponent } from '../basket/basket.component';
   styleUrls: ['./catalogue.component.css']
 })
 export class CatalogueComponent implements OnInit, OnDestroy {
+  basketItems:Product[] = []
 
-
-products: Product[] = []
+@Input() products: Product[] = []
 
 
 private unsubscribe$: Subject<void> = new Subject<void> ()
@@ -25,6 +26,7 @@ ngOnDestroy(): void {
   constructor(private catalogueService: CatalogueService) {}
 
   ngOnInit() {
+      this.catalogueService.basketItems$.subscribe(x => console.log(x))
     this.catalogueService.getLimitedProducts().pipe(
       // map(x => {
       //   return [x[0],x[1]]
@@ -43,6 +45,11 @@ ngOnDestroy(): void {
   
 
   
+  isActive = false;
+
+  toggleActive() {
+    this.isActive = !this.isActive;
+  }
 
 
 

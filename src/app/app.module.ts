@@ -16,6 +16,9 @@ import { NgxsModule } from '@ngxs/store';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BasketComponent } from './components/basket/basket.component';
 import { AuthGuard } from './auth.guard';
+import { CatalogueState } from './store/catalogue.state';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { AddOrderBtnComponent } from './components/catalogue/components/add-order-btn/add-order-btn.component';
 
 
 @NgModule({
@@ -25,7 +28,9 @@ import { AuthGuard } from './auth.guard';
     CatalogueComponent,
     ToastLoginComponent,
     NavbarComponent,
-    BasketComponent
+    BasketComponent,
+    AddOrderBtnComponent
+    
 
   ],
   imports: [
@@ -35,11 +40,9 @@ import { AuthGuard } from './auth.guard';
     FormsModule,
     RouterModule,
     HttpClientModule,
-    NgxsModule.forRoot([])
+    NgxsModule.forRoot([CatalogueState],{developmentMode: true}),
+    NgxsReduxDevtoolsPluginModule.forRoot({disabled:false})
 
-   
-    
-    
   ],
   providers: [LoginService, CatalogueService,AuthGuard
 ],

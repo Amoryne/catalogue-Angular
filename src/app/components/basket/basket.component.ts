@@ -12,12 +12,12 @@ import { Product } from '../catalogue/types/product';
 })
 export class BasketComponent implements OnInit {
 basketItems:Product[] = []
- 
+ basketItems$ = this.catalogueService.basketItems$
   constructor( private catalogueService: CatalogueService,
               ) { }
 
   ngOnInit() {
-    this.basketItems = this.catalogueService.getBasketItems()
+   
   }
 
 }
